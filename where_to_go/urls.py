@@ -14,13 +14,20 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 from where_to_go.views import mainview, placeview
 from django.conf.urls.static import static
 from django.conf import settings
+from nested_admin import urls
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', mainview, name="main"),
     path('places/<int:pk>/', placeview, name="mainplace"),
+    path('_nested_admin/', include('nested_admin.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+
+admin.site.index_title = "Куда пойти"
+admin.site.site_header = "Куда пойти - Администрирование сайта"
+admin.site.site_title = "КУда пойти"
