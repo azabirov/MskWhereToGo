@@ -18,13 +18,11 @@ from django.urls import path, include
 from where_to_go.views import mainview, placeview
 from django.conf.urls.static import static
 from django.conf import settings
-from nested_admin import urls
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', mainview, name="main"),
     path('places/<int:pk>/', placeview, name="mainplace"),
-    path('_nested_admin/', include('nested_admin.urls')),
     path('tinymce/', include('tinymce.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
