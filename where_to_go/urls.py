@@ -25,6 +25,7 @@ urlpatterns = [
     path('', mainview, name="main"),
     path('places/<int:pk>/', placeview, name="mainplace"),
     path('_nested_admin/', include('nested_admin.urls')),
+    path('tinymce/', include('tinymce.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 

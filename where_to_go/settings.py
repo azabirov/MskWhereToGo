@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'places',
     'nested_admin',
     'adminsortable2',
+    'tinymce',
 ]
 
 MIDDLEWARE = [

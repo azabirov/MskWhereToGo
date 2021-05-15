@@ -1,10 +1,7 @@
 from adminsortable2.admin import SortableInlineAdminMixin
 from django.contrib import admin
 from django.utils.html import format_html
-from nested_admin.nested import NestedStackedInline, NestedModelAdmin
-
 from places.models import Coordinates, Place, Image
-import nested_admin
 
 
 class ImageInline(SortableInlineAdminMixin, admin.TabularInline):
@@ -30,5 +27,6 @@ class PlaceAdmin(admin.ModelAdmin):
     inlines = [
         CoordinatesInline, ImageInline,
     ]
+
 
 admin.site.register(Image)
