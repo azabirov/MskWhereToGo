@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'places',
     'nested_admin',
+    'adminsortable2',
 ]
 
 MIDDLEWARE = [

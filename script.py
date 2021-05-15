@@ -9,7 +9,7 @@ django.setup()
 
 from places.models import Coordinates, Place, Image
 
-
+'''
 if __name__ == '__main__':
     with open('static/places/moscow_legends.json', encoding='utf-8') as data_file:
         json_data = json.loads(data_file.read())
@@ -56,3 +56,9 @@ if __name__ == '__main__':
                 img=wget.download(img_),
                 post=place,
             )
+'''
+if __name__ == '__main__':
+    images = Image.objects.all()
+    for image in images:
+        image.position = image.id-40
+        image.save()
