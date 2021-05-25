@@ -31,11 +31,11 @@ class Command(BaseCommand):
             lat=json_data["coordinates"]["lat"],
             place=place_,
         )
-        count = 1
+        count = 0
         for img_ in json_data["imgs"]:
             count += 1
             image = Image.objects.get_or_create(
-                img=wget.download(img_, out=settings.MEDIA_ROOT),
+                img=wget.download(img_, out=settings.MEDIA_ROOT).split("\\")[-1].split("/")[-1],
                 post=place_,
                 position=count,
             )
