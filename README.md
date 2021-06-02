@@ -1,6 +1,17 @@
-<h1>Интерактивная карта Москвы</h1>
-<p>Карта Москвы с интересными местами.</p>
-<p><b><a href="http://azabirov.pythonanywhere.com/">Ссылка на сайт (на ресурсе PythonAnywhere)</a></b></p>
-<p><b><a href="http://azabirov.pythonanywhere.com/admin">Админка сайта</a></b></p>
-<p><b>Тестовый логин и пароль от админка:</b><p>
-<p>login: <i>admin</i> password: <i>admin123</i></p>
+# Интерактивная карта Москвы
+
+Карта Москвы с примечательными местами.
+
+### **[Ссылка на сайт (на ресурсе PythonAnywhere)](http://azabirov.pythonanywhere.com/)**
+
+#### **[Админка сайта](http://azabirov.pythonanywhere.com/admin)**
+
+**Тестовый логин и пароль от админка:**
+
+_login_: admin _password_: admin123
+
+Для того что-бы добавить новую метку на карте воспользуйтесь командой `loadplace`:
+
+`python manage.py loadplace <ссылка на GEOJSon метку>`
+
+> Для добавления новой метки на карту так-же можно воспользоваться админкой.

@@ -3,6 +3,7 @@ import django
 import json
 import requests
 import wget
+from transliterate import slugify
 
 os.environ['DJANGO_SETTINGS_MODULE'] = 'where_to_go.settings'
 django.setup()
@@ -57,8 +58,15 @@ if __name__ == '__main__':
                 post=place,
             )
 '''
+'''
 if __name__ == '__main__':
     images = Image.objects.all()
     for image in images:
         image.position = image.id-40
         image.save()
+'''
+if __name__ == '__main__':
+        objs = Place.objects.all()
+        for obj in objs:
+            obj.placeid = slugify(obj.title).replace("-", "_")
+            obj.save()
