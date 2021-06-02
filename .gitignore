@@ -130,3 +130,9 @@ dmypy.json
 
 # env
 .env
+
+# Database
+.sqlite3
+
+# Media
+media/
