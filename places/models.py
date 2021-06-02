@@ -13,7 +13,7 @@ class Place(models.Model):
         verbose_name_plural = "Места"
 
     def __str__(self):
-        return f"{self.placeid} {self.title}"
+        return f"{self.title}"
 
 
 class Coordinates(models.Model):
