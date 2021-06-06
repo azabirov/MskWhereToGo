@@ -1,5 +1,7 @@
 # Интерактивная карта Москвы
 
+![Website preview](https://sun9-7.userapi.com/impg/hmzBWKmi_m0Vc4g850C4alGEzET5MhdG-NCWcw/eFfED3HVrEw.jpg?size=1920x1080&quality=96&sign=9f893ddaf4bcc5a2413ce448b07b0e8d&type=album)
+
 Карта Москвы с примечательными местами.
 
 - ### [**Ссылка на сайт** (на ресурсе PythonAnywhere)](http://azabirov.pythonanywhere.com/)
