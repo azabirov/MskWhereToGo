@@ -1,8 +1,8 @@
 # Интерактивная карта Москвы
 
-![Website preview](https://sun9-7.userapi.com/impg/hmzBWKmi_m0Vc4g850C4alGEzET5MhdG-NCWcw/eFfED3HVrEw.jpg?size=1920x1080&quality=96&sign=9f893ddaf4bcc5a2413ce448b07b0e8d&type=album)
+![Website preview](https://sun9-34.userapi.com/impg/vyGddoARGE1JC1lEaNjLNsvRCES8HeLb9U8NZQ/Dv6hzO0uGjM.jpg?size=1920x1080&quality=96&sign=35d6698ef13b8d2d8a4379ab08936192&type=album)
 
-Карта Москвы с примечательными местами.
+### *Примечательные места на карте москвы*
 
 - ### [**Ссылка на сайт** (на ресурсе PythonAnywhere)](http://azabirov.pythonanywhere.com/)
 - [Админка сайта](http://azabirov.pythonanywhere.com/admin)
@@ -37,7 +37,7 @@ ___
 - Запустить проект:
 
 `python manage.py runserver`
-- Проект запустить по адресу:
+- Сервер запустится по адресу:
 
 http://localhost:8000
 
