@@ -6,10 +6,10 @@ from places.models import Place, Image, Coordinates
 
 
 def mainview(request):
-    data = []
+    features = []
     for place in Place.objects.all():
         try:
-            data.append({
+            features.append({
                 "type": "Feature",
                 "geometry": {
                     "type": "Point",
@@ -23,7 +23,7 @@ def mainview(request):
             })
         except:
             Coordinates.objects.create(place=place)
-            data.append({
+            features.append({
                 "type": "Feature",
                 "geometry": {
                     "type": "Point",
@@ -38,7 +38,7 @@ def mainview(request):
 
     geojson = {
         "type": "FeatureCollection",
-        "features": data
+        "features": features
     }
 
     return render(request, 'index.html', context={'places': geojson})
@@ -46,8 +46,9 @@ def mainview(request):
 
 def placeview(request, pk):
     place = get_object_or_404(Place, id=pk)
-    imgs = [image.img.url for image in Image.objects.filter(post=place)]
-    #imgs = place.post.all()
+    #imgs = [image.img.url for image in Image.objects.filter(post=place)]
+    imgs = [image.img.url for image in place.post.all()]
+    print(imgs)
 
     response_data = {
         'title': place.title,
