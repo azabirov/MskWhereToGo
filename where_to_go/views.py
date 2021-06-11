@@ -1,8 +1,8 @@
-from django.http import HttpResponse, JsonResponse
+from django.http import JsonResponse
 from django.shortcuts import render, get_object_or_404
 from django.urls import reverse
 
-from places.models import Place, Image, Coordinates
+from places.models import Place, Coordinates
 
 
 def mainview(request):
@@ -46,18 +46,16 @@ def mainview(request):
 
 def placeview(request, pk):
     place = get_object_or_404(Place, id=pk)
-    #imgs = [image.img.url for image in Image.objects.filter(post=place)]
-    imgs = [image.img.url for image in place.post.all()]
-    print(imgs)
+    imgs = [image.img.url for image in place.image.all()]
 
     response_data = {
         'title': place.title,
-        'imgs': imgs if imgs else None,
-        'description_short': place.description_short if place.description_short else None,
-        'description_long': place.description_long if place.description_long else None,
+        'imgs': imgs,
+        'description_short': place.description_short,
+        'description_long': place.description_long,
         'coordinates': {
-            'lat': place.coordinates.lat if place.coordinates.lat else None,
-            'lng': place.coordinates.lng if place.coordinates.lng else None,
+            'lat': place.coordinates.lat,
+            'lng': place.coordinates.lng,
         }
     }
     return JsonResponse(response_data, json_dumps_params={'indent': 2, 'ensure_ascii': False})

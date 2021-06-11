@@ -31,7 +31,7 @@ class Coordinates(models.Model):
 
 class Image(models.Model):
     img = models.ImageField("Изображение")
-    post = models.ForeignKey(Place, on_delete=models.CASCADE, verbose_name="Место", related_name="post")
+    post = models.ForeignKey(Place, on_delete=models.CASCADE, verbose_name="Место", related_name="image")
     position = models.IntegerField(db_index=True)
 
     class Meta:
