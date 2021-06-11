@@ -4,8 +4,8 @@
 
 ### *Примечательные места на карте москвы*
 
-- ### [**Ссылка на сайт** (на ресурсе PythonAnywhere)](http://azabirov.pythonanywhere.com/)
-- [Админка сайта](http://azabirov.pythonanywhere.com/admin)
+[**Ссылка на сайт** (на ресурсе PythonAnywhere)](http://azabirov.pythonanywhere.com/)
+[Админка сайта](http://azabirov.pythonanywhere.com/admin)
 ___
 
 ### Как нанести новое место на карту?

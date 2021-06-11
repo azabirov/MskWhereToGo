@@ -128,11 +128,8 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
-# env
-.env
-
 # database
-.sqlite3
+db.sqlite3
 
 # media
 media/
