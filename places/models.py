@@ -13,12 +13,12 @@ class Place(models.Model):
         verbose_name_plural = "Места"
 
     def __str__(self):
-        return f"{self.title}"
+        return self.title
 
 
 class Coordinates(models.Model):
-    lng = models.FloatField("Долгота", null=True, default=1.0)
-    lat = models.FloatField("Широта", null=True, default=1.0)
+    lng = models.FloatField("Долгота", default=1.0)
+    lat = models.FloatField("Широта", default=1.0)
     place = models.OneToOneField(Place, on_delete=models.CASCADE, verbose_name="Место")
 
     class Meta:
