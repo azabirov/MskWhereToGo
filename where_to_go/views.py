@@ -8,33 +8,19 @@ from places.models import Place, Coordinates
 def mainview(request):
     features = []
     for place in Place.objects.all():
-        try:
-            features.append({
-                "type": "Feature",
-                "geometry": {
-                    "type": "Point",
-                    "coordinates": [place.coordinates.lng, place.coordinates.lat],
-                },
-                "properties": {
-                    "title": place.title,
-                    "placeId": place.placeid,
-                    "detailsUrl": reverse(placeview, args=[place.id]),
-                }
-            })
-        except:
-            Coordinates.objects.create(place=place)
-            features.append({
-                "type": "Feature",
-                "geometry": {
-                    "type": "Point",
-                    "coordinates": [place.coordinates.lng, place.coordinates.lat],
-                },
-                "properties": {
-                    "title": place.title,
-                    "placeId": place.placeid,
-                    "detailsUrl": reverse(placeview, args=[place.id]),
-                }
-            })
+        Coordinates.objects.get_or_create(place=place)
+        features.append({
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [place.coordinates.lng, place.coordinates.lat],
+            },
+            "properties": {
+                "title": place.title,
+                "placeId": place.placeid,
+                "detailsUrl": reverse(placeview, args=[place.id]),
+            }
+        })
 
     geojson = {
         "type": "FeatureCollection",
