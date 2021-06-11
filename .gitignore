@@ -129,7 +129,7 @@ dmypy.json
 .pyre/
 
 # database
-db.sqlite3
+*.sqlite3
 
 # media
 media/
