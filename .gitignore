@@ -133,3 +133,6 @@ db.sqlite3
 
 # media
 media/
+
+#script
+script.py
