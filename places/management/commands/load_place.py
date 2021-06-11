@@ -1,12 +1,10 @@
-import json
-import os
 from django.core.management.base import BaseCommand
 from places.models import Place, Coordinates, Image
 from django.conf import settings
 import requests
 import wget
-import re
 from transliterate import slugify
+
 
 class Command(BaseCommand):
     def add_arguments(self, parser):
@@ -16,8 +14,6 @@ class Command(BaseCommand):
         url = options["url"]
         link = requests.get(url)
         json_data = link.json()
-        #raw_name = link.headers['content-disposition']
-        #json_name = os.path.splitext(re.findall("filename=(.+)", raw_name)[0])[0]
 
         place_, created = Place.objects.get_or_create(
             placeid=slugify(json_data["title"]).replace("-", "_"),
