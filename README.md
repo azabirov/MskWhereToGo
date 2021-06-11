@@ -59,4 +59,4 @@ python manage.py loadplace <ссылка на GEOJSon метку>
 }
 ```
 
->Данные для сайта взяты с сайта [Kudago](https://kudago.com/)
+>Данные для сайта взяты с сайта [Kudago](https://kudago.com)
