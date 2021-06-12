@@ -2,7 +2,6 @@ from django.core.management.base import BaseCommand
 from places.models import Place, Coordinates, Image
 from django.conf import settings
 import requests
-import wget
 from transliterate import slugify
 
 
@@ -32,10 +31,18 @@ class Command(BaseCommand):
         )
 
         for index, img_ in enumerate(place_raw["imgs"]):
+            filename_raw = settings.MEDIA_ROOT + '\\' + img_.split("\\")[-1].split("/")[-1]
+            filename_clean = img_.split("\\")[-1].split("/")[-1]
+            response = requests.get(img_, timeout=0.5)
+            response.raise_for_status()
+
+            with open(filename_raw, 'wb') as f:
+                f.write(response.content)
+
             image = Image.objects.get_or_create(
                 post=place_,
                 position=index+1,
                 defaults={
-                    'img': wget.download(img_, out=settings.MEDIA_ROOT).split("\\")[-1].split("/")[-1],
+                    'img': filename_clean,
                 }
             )
