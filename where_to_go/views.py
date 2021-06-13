@@ -3,6 +3,7 @@ from django.shortcuts import render, get_object_or_404
 from django.urls import reverse
 
 from places.models import Place, Coordinates
+from where_to_go import settings
 
 
 def mainview(request):
@@ -32,7 +33,7 @@ def mainview(request):
 
 def placeview(request, pk):
     place = get_object_or_404(Place, id=pk)
-    imgs = [image.img.url for image in place.image.all()]
+    imgs = [request.build_absolute_uri(image.img.url) for image in place.image.all()]
 
     response_data = {
         'title': place.title,
