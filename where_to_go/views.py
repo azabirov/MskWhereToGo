@@ -3,7 +3,6 @@ from django.shortcuts import render, get_object_or_404
 from django.urls import reverse
 
 from places.models import Place, Coordinates
-from where_to_go import settings
 
 
 def mainview(request):
