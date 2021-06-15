@@ -5,7 +5,7 @@ from django.urls import reverse
 from places.models import Place, Coordinates
 
 
-def mainview(request):
+def main_view(request):
     features = []
     for place in Place.objects.all():
         Coordinates.objects.get_or_create(place=place)
@@ -18,7 +18,7 @@ def mainview(request):
             "properties": {
                 "title": place.title,
                 "placeId": place.placeid,
-                "detailsUrl": reverse(placeview, args=[place.id]),
+                "detailsUrl": reverse(place_view, args=[place.id]),
             }
         })
 
@@ -30,7 +30,7 @@ def mainview(request):
     return render(request, 'index.html', context={'places': geojson})
 
 
-def placeview(request, pk):
+def place_view(request, pk):
     place = get_object_or_404(Place, id=pk)
     imgs = [request.build_absolute_uri(image.img.url) for image in place.image.all()]
 
