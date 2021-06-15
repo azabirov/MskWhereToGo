@@ -27,6 +27,10 @@ DEBUG = <True либо False, зависит от целей>
 ```bash
 python manage.py runserver
 ```
+- Собрать статику:
+```bash
+python manage.py collectstatic
+```
 - Сервер запустится по адресу:
 
 http://localhost:8000
