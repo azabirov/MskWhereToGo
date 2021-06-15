@@ -40,4 +40,4 @@ class Image(models.Model):
         ordering = ["position"]
 
     def __str__(self):
-        return f"{self.post.placeid} - #{self.id}"
+        return f"{self.post.placeid} - #{self.position}"
