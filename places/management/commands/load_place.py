@@ -27,7 +27,7 @@ class Command(BaseCommand):
             }
         )
 
-        coordinate = Coordinates.objects.get_or_create(
+        Coordinates.objects.get_or_create(
             lng=place_raw["coordinates"]["lng"],
             lat=place_raw["coordinates"]["lat"],
             place=place_,
@@ -42,7 +42,7 @@ class Command(BaseCommand):
             with open(filepath, 'wb') as f:
                 f.write(response.content)
 
-            image = Image.objects.get_or_create(
+            Image.objects.get_or_create(
                 post=place_,
                 position=index+1,
                 defaults={
