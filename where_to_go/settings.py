@@ -127,7 +127,7 @@ USE_TZ = True
 
 STATIC_ROOT = 'static'
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
 
 MEDIA_URL = '/media/'
 
