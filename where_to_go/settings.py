@@ -29,8 +29,8 @@ SECRET_KEY = env.str('SECRET_KEY', default='replace_me')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env.bool('DEBUG', default=False)
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'azabirov.pythonanywhere.com']
-
+#ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'azabirov.pythonanywhere.com']
+ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS').split(' ')
 
 # Application definition
 

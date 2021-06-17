@@ -1,5 +1,7 @@
 # Интерактивная карта Москвы с примечательными местами
 
+Сайт для отображения GEOJson меток на карте города. Поможет вам найти место поблизости где можно отлично провести время.
+
 ![Website preview](https://sun9-34.userapi.com/impg/vyGddoARGE1JC1lEaNjLNsvRCES8HeLb9U8NZQ/Dv6hzO0uGjM.jpg?size=1920x1080&quality=96&sign=35d6698ef13b8d2d8a4379ab08936192&type=album)
 
 
@@ -20,8 +22,9 @@ pip install -r requirements.txt
 ```
 - Создать в папке с проектом файл .env, указав в нем следующие значение:
 ```
-SECRET_KEY = '<значение секретного ключа на ваш выбор (чем сложнее - тем лучше)>'
+SECRET_KEY = <значение секретного ключа на ваш выбор (чем сложнее - тем лучше)>
 DEBUG = <True либо False, зависит от целей>
+ALLOWED_HOSTS = <имена хостов через пробел, например: localhost 127.0.0.1 azabirov.pythonanywhere.com>
 ```
 - Запустить проект:
 ```bash
