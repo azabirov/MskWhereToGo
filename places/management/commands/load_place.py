@@ -1,8 +1,11 @@
+from os import path
 from django.core.management.base import BaseCommand
 from places.models import Place, Coordinates, Image
 from django.conf import settings
 import requests
 from transliterate import slugify
+from urllib.parse import urlparse
+from pathlib import Path
 
 
 class Command(BaseCommand):
@@ -31,18 +34,18 @@ class Command(BaseCommand):
         )
 
         for index, img_ in enumerate(place_raw["imgs"]):
-            filename_raw = settings.MEDIA_ROOT + '\\' + img_.split("\\")[-1].split("/")[-1]
-            filename_clean = img_.split("\\")[-1].split("/")[-1]
-            response = requests.get(img_, timeout=0.5)
+            filename = Path(urlparse(img_).path).name
+            filepath = path.join(settings.MEDIA_ROOT, filename)
+            response = requests.get(img_, timeout=2.5)
             response.raise_for_status()
 
-            with open(filename_raw, 'wb') as f:
+            with open(filepath, 'wb') as f:
                 f.write(response.content)
 
             image = Image.objects.get_or_create(
                 post=place_,
                 position=index+1,
                 defaults={
-                    'img': filename_clean,
+                    'img': filename,
                 }
             )
