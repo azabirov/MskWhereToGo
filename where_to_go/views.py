@@ -8,7 +8,6 @@ from places.models import Place, Coordinates
 def main_view(request):
     features = []
     for place in Place.objects.all():
-        Coordinates.objects.get_or_create(place=place)
         features.append({
             "type": "Feature",
             "geometry": {
