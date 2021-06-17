@@ -31,7 +31,7 @@ def main_view(request):
 
 def place_view(request, pk):
     place = get_object_or_404(Place, id=pk)
-    imgs = [request.build_absolute_uri(image.img.url) for image in place.image.all()]
+    imgs = [request.build_absolute_uri(image.img.url) for image in place.images.all()]
 
     response_data = {
         'title': place.title,
