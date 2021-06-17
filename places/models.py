@@ -17,9 +17,9 @@ class Place(models.Model):
 
 
 class Coordinates(models.Model):
-    lng = models.FloatField("Долгота", default=1.0)
-    lat = models.FloatField("Широта", default=1.0)
-    place = models.OneToOneField(Place, on_delete=models.CASCADE, verbose_name="Место")
+    lng = models.FloatField("Долгота")
+    lat = models.FloatField("Широта")
+    place = models.OneToOneField(Place, on_delete=models.CASCADE, verbose_name="Место", related_name="coordinates")
 
     class Meta:
         verbose_name = "Координаты"
