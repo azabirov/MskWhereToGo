@@ -33,7 +33,7 @@ class Command(BaseCommand):
             place=place_,
         )
 
-        for index, img_ in enumerate(place_raw["imgs"]):
+        for index, img_ in enumerate(place_raw["imgs"], 1):
             filename = Path(urlparse(img_).path).name
             filepath = path.join(settings.MEDIA_ROOT, filename)
             response = requests.get(img_, timeout=2.5)
@@ -44,7 +44,7 @@ class Command(BaseCommand):
 
             Image.objects.get_or_create(
                 post=place_,
-                position=index+1,
+                position=index,
                 defaults={
                     'img': filename,
                 }
